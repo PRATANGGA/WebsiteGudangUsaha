@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Sen:wght@700&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="fav/icons8-financial-analytics-48.png" type="image/x-icon" />
+    <title>GudangUsaha</title>
+    <style>
+      /* navbar */
+      nav {
+        display: flex;
+        background-color: #2a3990;
+        justify-content: space-around;
+        height: 70px;
+        align-items: center;
+        color: rgb(253, 250, 250);
+        box-shadow: 5px 0 10px black;
+      }
+      nav .logo {
+        font-family: "Abril Fatface", cursive;
+        font-size: 25px;
+        letter-spacing: 2px;
+        position: relative;
+        left: -10px;
+      }
+      nav ul {
+        display: flex;
+        list-style: none;
+        width: 40%;
+        justify-content: space-between;
+      }
+
+      nav ul li a {
+        color: rgb(205, 205, 205);
+        text-decoration: none;
+        font-family: "Abril Fatface", cursive;
+        font-family: "Sen", sans-serif;
+        font-size: 0.8em;
+      }
+
+      nav ul li a:hover {
+        color: white;
+      }
+      /* Responsive Breakpoint */
+      /* menu hamburger */
+
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        height: 20px;
+        justify-content: space-between;
+        position: relative;
+        right: -40px;
+        z-index: 900;
+      }
+      .menu-toggle input {
+        position: absolute;
+        width: 40px;
+        height: 28px;
+        left: -5px;
+        top: -3px;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 2;
+      }
+      .menu-toggle span {
+        display: block;
+        width: 30px;
+        height: 3px;
+        background-color: rgb(205, 205, 205);
+        border-radius: 10px;
+      }
+      /* Hamburger */
+      .menu-toggle span:nth-child(2) {
+        transform-origin: 0 0;
+      }
+      .menu-toggle span:nth-child(4) {
+        transform-origin: 0 100%;
+      }
+      .menu-toggle input:checked ~ span:nth-child(2) {
+        background-color: white;
+        transform: rotate(45deg) translate(-1px, -2px);
+        transition: 0.8s;
+      }
+      .menu-toggle input:checked ~ span:nth-child(4) {
+        background-color: white;
+        transform: rotate(-45deg) translate(-1px, 0);
+        transition: 0.8s;
+      }
+      .menu-toggle input:checked ~ span:nth-child(3) {
+        transform: scale(0);
+        transition: 0.9s;
+        opacity: 0;
+      }
+
+      /* responsif */
+      /* ukuran tablet */
+      @media screen and (max-width: 766px) {
+        .menu-toggle {
+          display: flex;
+        }
+        nav ul {
+          width: 50%;
+        }
+      }
+
+      /* ukuran mobile */
+      @media screen and (max-width: 576px) {
+        .menu-toggle {
+          display: flex;
+        }
+        nav ul {
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 70%;
+          height: 150vh;
+          justify-content: space-evenly;
+          flex-direction: column;
+          align-items: center;
+          background-color: #2a3990;
+          z-index: 1;
+          transform: translateX(100%);
+          transition: all 1.3s;
+          opacity: 0;
+        }
+        nav ul.slide {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
+
+      * {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        text-transform: capitalize;
+        transition: all 0.2s linear;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 25px;
+        min-height: 100vh;
+      }
+
+      .container form {
+        padding: 20px;
+        width: 700px;
+        background: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .container form .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .container form .row .col {
+        flex: 1 1 250px;
+      }
+
+      .container form .row .col .title {
+        font-size: 20px;
+        color: #333;
+        padding-bottom: 5px;
+        text-transform: uppercase;
+      }
+
+      .container form .row .col .inputBox {
+        margin: 15px 0;
+      }
+
+      .container form .row .col .inputBox span {
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      .container form .row .col .inputBox input {
+        width: 100%;
+        border: 1px solid #ccc;
+        padding: 10px 15px;
+        font-size: 15px;
+        text-transform: none;
+      }
+
+      .container form .row .col .inputBox input:focus {
+        border: 1px solid #000;
+      }
+
+      .container form .row .col .flex {
+        display: flex;
+        gap: 15px;
+      }
+
+      .container form .row .col .flex .inputBox {
+        margin-top: 5px;
+      }
+
+      .container form .row .col .inputBox img {
+        height: 34px;
+        margin-top: 5px;
+        filter: drop-shadow(0 0 1px #000);
+      }
+
+      .container form .submit-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 17px;
+        background: #27ae60;
+        color: #fff;
+        margin-top: 5px;
+        cursor: pointer;
+      }
+
+      .container form .submit-btn:hover {
+        background: #2ecc71;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <h3>GudangUsaha</h3>
+      </div>
+
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="login.html">Sign in</a></li>
+        <li><a href="daftar.html">Daftar</a></li>
+      </ul>
+
+      <div class="menu-toggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+    <div class="container">
+      <form action="">
+        <div class="row">
+          <div class="col">
+            <h3 class="title">billing address</h3>
+
+            <div class="inputBox">
+              <span>full name :</span>
+              <input type="text" placeholder="john deo" />
+            </div>
+            <div class="inputBox">
+              <span>email :</span>
+              <input type="email" placeholder="example@example.com" />
+            </div>
+            <div class="inputBox">
+              <span>address :</span>
+              <input type="text" placeholder="room - street - locality" />
+            </div>
+            <div class="inputBox">
+              <span>city :</span>
+              <input type="text" placeholder="mumbai" />
+            </div>
+
+            <div class="flex">
+              <div class="inputBox">
+                <span>state :</span>
+                <input type="text" placeholder="india" />
+              </div>
+              <div class="inputBox">
+                <span>zip code :</span>
+                <input type="text" placeholder="123 456" />
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <h3 class="title">payment</h3>
+
+            <div class="inputBox">
+              <span>cards accepted :</span>
+              <img src="images/card_img.png" alt="" />
+            </div>
+            <div class="inputBox">
+              <span>name on card :</span>
+              <input type="text" placeholder="mr. john deo" />
+            </div>
+            <div class="inputBox">
+              <span>credit card number :</span>
+              <input type="number" placeholder="1111-2222-3333-4444" />
+            </div>
+            <div class="inputBox">
+              <span>exp month :</span>
+              <input type="text" placeholder="january" />
+            </div>
+
+            <div class="flex">
+              <div class="inputBox">
+                <span>exp year :</span>
+                <input type="number" placeholder="2022" />
+              </div>
+              <div class="inputBox">
+                <span>CVV :</span>
+                <input type="text" placeholder="1234" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <input type="submit" value="proceed to checkout" class="submit-btn" />
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
